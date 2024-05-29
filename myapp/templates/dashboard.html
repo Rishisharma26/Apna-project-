@@ -1,0 +1,684 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>Food Ordering HTML Template</title>
+    <link
+      rel="shortcut icon"
+      href="{% static 'assets/images/favicon.png' %}"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="{% static 'assets/css/icons.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/red-color.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/yellow-color.css' %}" />
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
+  </head>
+<body itemscope>
+    <main>
+        <div class="preloader">
+            <div id="cooking">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div id="area">
+                    <div id="sides">
+                        <div id="pan"></div>
+                        <div id="handle"></div>
+                    </div>
+                    <div id="pancake">
+                        <div id="pastry"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="bread-crumbs-wrapper">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+            </div>
+        </div>
+
+        <section>
+            <div class="block less-spacing gray-bg top-padd30">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="sec-box">
+                                <div class="dashboard-tabs-wrapper">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-12 col-lg-4">
+                                            <div class="profile-sidebar brd-rd5 wow fadeIn" data-wow-delay="0.2s">
+                                                <div class="profile-sidebar-inner brd-rd5">
+                                                    <div class="user-info red-bg">
+                                                        <img
+                                                          class="brd-rd50"
+                                                          src="{{uid.pic.url}}"
+                                                          alt="user-avatar.jpg"
+                                                          itemprop="image"
+                                                          width="76"
+                                                          height="76"
+                                                         href="#account-settings" data-toggle="tab"
+                                                        />
+                                                        <div class="user-info-inner">
+                                                          <h5 itemprop="headline">
+                                                            <a href="#account-settings" data-toggle="tab">
+                                                              <p
+                                                                style="
+                                                                  text-transform: uppercase;
+                                                                  color: white;
+                                                                "
+                                                              >
+                                                                {{uid.fname}}
+                                                              </p>
+                                                            </a>
+                                                          </h5>
+                                                          <span>
+                                                            <a href="#account-settings" data-toggle="tab" title="" itemprop="url">
+                                                              {{uid.email}}
+                                                            </a>
+                                                          </span>
+                                                          <a
+                                                            class="brd-rd3 sign-out-btn yellow-bg"
+                                                            href="{% url 'logout' %}"
+                                                            title=""
+                                                            itemprop="url"
+                                                          >
+                                                            <i class="fa fa-sign-out"></i>
+                                                            SIGN OUT
+                                                          </a>
+                                                        </div>
+                                                      </div>
+                                                    <ul class="nav nav-tabs">
+                                                        <li class="active"><a href="#dashboard" data-toggle="tab"><i class="fa fa-dashboard"></i> DASHBOARD</a></li>
+                                                        <li><a href="#my-bookings" data-toggle="tab"><i class="fa fa-file-text"></i> MY BOOKINGS</a></li>
+                                                        <li><a href="#my-reviews" data-toggle="tab"><i class="fa fa-comments"></i> MY REVIEWS</a></li>
+                                                        <li><a href="#my-orders" data-toggle="tab"><i class="fa fa-shopping-basket"></i> MY ORDERS</a></li>
+                                                        <li><a href="#shortlists" data-toggle="tab"><i class="fa fa-heart"></i> SHORTLISTS</a></li>
+                                                        <li><a href="#statement" data-toggle="tab"><i class="fa fa-wpforms"></i> STATEMENT</a></li>
+                                                        <li><a href="#account-settings" data-toggle="tab"><i class="fa fa-cog"></i> ACCOUNT SETTINGS</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-sm-12 col-lg-8">
+                                            <div class="tab-content">
+                                                <div class="tab-pane fade in active" id="dashboard">
+                                                    <div class="dashboard-wrapper brd-rd5">
+                                                        <div class="welcome-note yellow-bg brd-rd5">
+                                                            <h4 itemprop="headline">WELCOME TO YOUR ACCOUNT</h4>
+                                                            <p itemprop="description">Things that get tricky are things like burgers and fries, or things that are deep-fried. We do have a couple of burger restaurants that are capable of doing a good</p>
+                                                            
+                                                        </div>
+                                                        <div class="dashboard-title">
+                                                            <h4 itemprop="headline">SUGGESTED RESTAURANTS</h4>
+                                                            <span>Define <a class="red-clr" href="#" title="" itemprop="url">Search criteria</a> to search for specific</span>
+                                                        </div>
+                                                        <div class="restaurants-list" style=" max-height: 600px;
+                                                        overflow-y: scroll;">
+                                                            {% for menu in menu %}
+                                                            <div
+                                                              class="featured-restaurant-box style3 brd-rd5 wow fadeInUp"
+                                                              data-wow-delay="0.2s"
+                                                            >
+                                                              <div class="featured-restaurant-thumb">
+                                                                <a href="#" title="" itemprop="url">
+                                                                  <img
+                                                                    src="{{menu.pic.url}}"
+                                                                    alt="restaurant-logo1-1.png"
+                                                                    itemprop="image"
+                                                                  />
+                                                                </a>
+                                                              </div>
+                                                              <div class="featured-restaurant-info">
+                                                                <span class="red-clr">
+                                                                  5th Avenue New York 68
+                                                                </span>
+                                                                <h4 itemprop="headline">
+                                                                  <a href="#" title="" itemprop="url">
+                                                                    {{menu.item_name}}
+                                                                  </a>
+                                                                </h4>
+                                                                <ul class="post-meta">
+                                                                  <li>
+                                                                    <i class="fa fa-check-circle-o"></i>
+                                                                    {{menu.item_price}}RS
+                                                                  </li>
+                                                                  <li>
+                                                                    <i class="flaticon-transport"></i>
+                                                                    30min
+                                                                  </li>
+                                                                </ul>
+                                                              </div>
+                                                              <div class="view-menu-liks">
+                                                                <span class="red-bg brd-rd4 post-likes">
+                                                                  <i class="fa fa-heart-o"></i>
+                                                                  12
+                                                                </span>
+                                                                <a
+                                                                  class="brd-rd3"
+                                                                  href="{% url 'menue'%}"
+                                                                  title=""
+                                                                  itemprop="url"
+                                                                >
+                                                                  View Menu
+                                                                </a>
+                                                              </div>
+                                                            </div>
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="my-bookings">
+                                                    <div class="tabs-wrp brd-rd5">
+                                                        <h4 itemprop="headline">MY BOOKINGS</h4>
+                                                        <div class="select-wrap-inner">
+                                                            <div class="select-wrp2">
+                                                                <select>
+                                                                    <option>Select Booking Status</option>
+                                                                    <option>Select Booking Status</option>
+                                                                    <option>Select Booking Status</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="select-wrp2">
+                                                                <select>
+                                                                    <option>Select Date Range</option>
+                                                                    <option>Select Date Range</option>
+                                                                    <option>Select Date Range</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="booking-table">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr><th>RESTAURANT NAME</th><th>DATE</th><th>STATUS</th></tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td><h5 itemprop="headline"><a href="#" title="" itemprop="url">Jet's Kitchen ( #8589 )</a></h5></td>
+                                                                        <td>Aug 17,2017</td>
+                                                                        <td><span class="brd-rd3 processing">PROCESSING</span> <a class="detail-link brd-rd50" href="#" title="" itemprop="url"><i class="fa fa-chain"></i></a></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><h5 itemprop="headline"><a href="#" title="" itemprop="url">Jet's Kitchen ( #8589 )</a></h5></td>
+                                                                        <td>Aug 17,2017</td>
+                                                                        <td><span class="brd-rd3 processing">PROCESSING</span> <a class="detail-link brd-rd50" href="#" title="" itemprop="url"><i class="fa fa-chain"></i></a></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><h5 itemprop="headline"><a href="#" title="" itemprop="url">Jet's Kitchen ( #8589 )</a></h5></td>
+                                                                        <td>Aug 17,2017</td>
+                                                                        <td><span class="brd-rd3 completed">COMPLETED</span> <a class="detail-link brd-rd50" href="#" title="" itemprop="url"><i class="fa fa-chain"></i></a></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><h5 itemprop="headline"><a href="#" title="" itemprop="url">Jet's Kitchen ( #8589 )</a></h5></td>
+                                                                        <td>Aug 17,2017</td>
+                                                                        <td><span class="brd-rd3 processing">PROCESSING</span> <a class="detail-link brd-rd50" href="#" title="" itemprop="url"><i class="fa fa-chain"></i></a></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><h5 itemprop="headline"><a href="#" title="" itemprop="url">Jet's Kitchen ( #8589 )</a></h5></td>
+                                                                        <td>Aug 17,2017</td>
+                                                                        <td><span class="brd-rd3 completed">COMPLETED</span> <a class="detail-link brd-rd50" href="#" title="" itemprop="url"><i class="fa fa-chain"></i></a></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="my-reviews">
+                                                    <div class="tabs-wrp brd-rd5">
+                                                        <h4 itemprop="headline">MY REVIEWS</h4>
+                                                        <div class="select-wrap-inner">
+                                                            <div class="select-wrp2">
+                                                                <select>
+                                                                    <option>Newest Reviews</option>
+                                                                    <option>Newest Reviews</option>
+                                                                    <option>Newest Reviews</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="select-wrp2">
+                                                                <select>
+                                                                    <option>Select Date Range</option>
+                                                                    <option>Select Date Range</option>
+                                                                    <option>Select Date Range</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="review-list">
+                                                            <div class="review-box brd-rd5">
+                                                                <h4 itemprop="headline"><a href="#" title="" itemprop="url">RESTAURANT DEMO</a></h4>
+                                                                <div class="ratings">
+                                                                    <i class="fa fa-star on"></i>
+                                                                    <i class="fa fa-star on"></i>
+                                                                    <i class="fa fa-star on"></i>
+                                                                    <i class="fa fa-star off"></i>
+                                                                    <i class="fa fa-star off"></i>
+                                                                </div>
+                                                                <p itemprop="description">FoodBakery order today. So great to be able to order food and not have to talk to anyone.</p>
+                                                                <div class="review-info">
+                                                                    <img class="brd-rd50" src="assets/images/resource/reviewr-img1.jpg" alt="reviewr-img1.jpg" itemprop="image">
+                                                                    <div class="review-info-inner">
+                                                                        <h5 itemprop="headline">QLARK JAKSON</h5>
+                                                                        <i class="red-clr">2 months Ago</i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="review-box brd-rd5">
+                                                                <h4 itemprop="headline"><a href="#" title="" itemprop="url">RESTAURANT DEMO</a></h4>
+                                                                <div class="ratings">
+                                                                    <i class="fa fa-star on"></i>
+                                                                    <i class="fa fa-star on"></i>
+                                                                    <i class="fa fa-star on"></i>
+                                                                    <i class="fa fa-star on"></i>
+                                                                    <i class="fa fa-star off"></i>
+                                                                </div>
+                                                                <p itemprop="description">FoodBakery order today. So great to be able to order food and not have to talk to anyone.</p>
+                                                                <div class="review-info">
+                                                                    <img class="brd-rd50" src="assets/images/resource/reviewr-img2.jpg" alt="reviewr-img2.jpg" itemprop="image">
+                                                                    <div class="review-info-inner">
+                                                                        <h5 itemprop="headline">QLARK JAKSON</h5>
+                                                                        <i class="red-clr">2 months Ago</i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="review-box brd-rd5">
+                                                                <h4 itemprop="headline"><a href="#" title="" itemprop="url">RESTAURANT DEMO</a></h4>
+                                                                <div class="ratings">
+                                                                    <i class="fa fa-star on"></i>
+                                                                    <i class="fa fa-star on"></i>
+                                                                    <i class="fa fa-star on"></i>
+                                                                    <i class="fa fa-star on"></i>
+                                                                    <i class="fa fa-star on"></i>
+                                                                </div>
+                                                                <p itemprop="description">FoodBakery order today. So great to be able to order food and not have to talk to anyone.</p>
+                                                                <div class="review-info">
+                                                                    <img class="brd-rd50" src="assets/images/resource/reviewr-img3.jpg" alt="reviewr-img3.jpg" itemprop="image">
+                                                                    <div class="review-info-inner">
+                                                                        <h5 itemprop="headline">QLARK JAKSON</h5>
+                                                                        <i class="red-clr">2 months Ago</i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- Review List -->
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="my-orders">
+                                                    <div class="tabs-wrp brd-rd5">
+                                                        <h4 itemprop="headline">MY ORDERS</h4>
+                                                        <div class="select-wrap-inner">
+                                                            <div class="select-wrp2">
+                                                                <select>
+                                                                    <option>Select Orders Status</option>
+                                                                    <option>Select Orders Status</option>
+                                                                    <option>Select Orders Status</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="select-wrp2">
+                                                                <select>
+                                                                    <option>Select Date Range</option>
+                                                                    <option>Select Date Range</option>
+                                                                    <option>Select Date Range</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="order-list">
+                                                            <div class="order-item brd-rd5">
+                                                                <div class="order-thumb brd-rd5">
+                                                                    <a href="#" title="" itemprop="url"><img src="assets/images/resource/order-img1.jpg" alt="order-img1.jpg" itemprop="image"></a>
+                                                                    <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 4.25</span>
+                                                                </div>
+                                                                <div class="order-info">
+                                                                    <span class="red-clr">5th Avenue New York 68</span>
+                                                                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Maenaam Thai Restaurant</a></h4>
+                                                                    
+                                                                    <span class="price">$85.00</span>
+                                                                    <span class="processing brd-rd3">PROCESSING</span>
+                                                                    <a class="brd-rd2" href="#" title="" itemprop="url">Order Detail</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-item brd-rd5">
+                                                                <div class="order-thumb brd-rd5">
+                                                                    <a href="#" title="" itemprop="url"><img src="assets/images/resource/order-img2.jpg" alt="order-img2.jpg" itemprop="image"></a>
+                                                                    <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 3.0</span>
+                                                                </div>
+                                                                <div class="order-info">
+                                                                    <span class="red-clr">5th Avenue New York 68</span>
+                                                                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Maenaam Thai Restaurant</a></h4>
+                                                                    
+                                                                    <span class="price">$85.00</span>
+                                                                    <span class="completed brd-rd3">COMPLETED</span>
+                                                                    <a class="brd-rd2" href="#" title="" itemprop="url">Order Detail</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-item brd-rd5">
+                                                                <div class="order-thumb brd-rd5">
+                                                                    <a href="#" title="" itemprop="url"><img src="assets/images/resource/order-img3.jpg" alt="order-img3.jpg" itemprop="image"></a>
+                                                                    <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 5.00</span>
+                                                                </div>
+                                                                <div class="order-info">
+                                                                    <span class="red-clr">5th Avenue New York 68</span>
+                                                                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Maenaam Thai Restaurant</a></h4>
+                                                                    
+                                                                    <span class="price">$85.00</span>
+                                                                    <span class="completed brd-rd3">COMPLETED</span>
+                                                                    <a class="brd-rd2" href="#" title="" itemprop="url">Order Detail</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-item brd-rd5">
+                                                                <div class="order-thumb brd-rd5">
+                                                                    <a href="#" title="" itemprop="url"><img src="assets/images/resource/order-img4.jpg" alt="order-img4.jpg" itemprop="image"></a>
+                                                                    <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star-o"></i> 5.30</span>
+                                                                </div>
+                                                                <div class="order-info">
+                                                                    <span class="red-clr">5th Avenue New York 68</span>
+                                                                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Maenaam Thai Restaurant</a></h4>
+                                                                    
+                                                                    <span class="price">$85.00</span>
+                                                                    <span class="completed brd-rd3">COMPLETED</span>
+                                                                    <a class="brd-rd2" href="#" title="" itemprop="url">Order Detail</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pagination-wrapper text-center style2">
+                                                            <ul class="pagination justify-content-center">
+                                                                <li class="page-item prev"><a class="page-link brd-rd2" href="#" itemprop="url">PREV</a></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">1</a></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">2</a></li>
+                                                                <li class="page-item active"><span class="page-link brd-rd2">3</span></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">4</a></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">5</a></li>
+                                                                <li class="page-item">........</li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">18</a></li>
+                                                                <li class="page-item next"><a class="page-link brd-rd2" href="#" itemprop="url">NEXT</a></li>
+                                                            </ul>
+                                                        </div><!-- Pagination Wrapper -->
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="shortlists">
+                                                    <div class="tabs-wrp brd-rd5">
+                                                        <h4 itemprop="headline">SHORTLISTS</h4>
+                                                        <div class="restaurants-list">
+                                                            <div class="featured-restaurant-box style3 brd-rd5">
+                                                                <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="assets/images/resource/restaurant-logo1-1.png" alt="restaurant-logo1-1.png" itemprop="image"></a></div>
+                                                                <div class="featured-restaurant-info">
+                                                                    <span class="red-clr">5th Avenue New York 68</span>
+                                                                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Domino's Pizza</a></h4>
+                                                                    <ul class="post-meta">
+                                                                        <li><i class="fa fa-check-circle-o"></i> Min order $50</li>
+                                                                        <li><i class="flaticon-transport"></i> 30min</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="view-menu-liks">
+                                                                    <a class="brd-rd3" href="#" title="" itemprop="url">View Menu</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="featured-restaurant-box style3 brd-rd5">
+                                                                <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="assets/images/resource/restaurant-logo1-2.png" alt="restaurant-logo1-2.png" itemprop="image"></a></div>
+                                                                <div class="featured-restaurant-info">
+                                                                    <span class="red-clr">5th Avenue New York 68</span>
+                                                                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Pizza Hut</a></h4>
+                                                                    <ul class="post-meta">
+                                                                        <li><i class="fa fa-check-circle-o"></i> Min order $40</li>
+                                                                        <li><i class="flaticon-transport"></i> 30min</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="view-menu-liks">
+                                                                    <a class="brd-rd3" href="#" title="" itemprop="url">View Menu</a>
+                                                                </div>
+                                                            </div>
+                                                            <div class="featured-restaurant-box style3 brd-rd5">
+                                                                <div class="featured-restaurant-thumb"><a href="#" title="" itemprop="url"><img src="assets/images/resource/restaurant-logo1-3.png" alt="restaurant-logo1-3.png" itemprop="image"></a></div>
+                                                                <div class="featured-restaurant-info">
+                                                                    <span class="red-clr">5th Avenue New York 68</span>
+                                                                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Burger King</a></h4>
+                                                                    <ul class="post-meta">
+                                                                        <li><i class="fa fa-check-circle-o"></i> Min order $100</li>
+                                                                        <li><i class="flaticon-transport"></i> 30min</li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="view-menu-liks">
+                                                                    <a class="brd-rd3" href="#" title="" itemprop="url">View Menu</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="pagination-wrapper text-center style2">
+                                                            <ul class="pagination justify-content-center">
+                                                                <li class="page-item prev"><a class="page-link brd-rd2" href="#" itemprop="url">PREV</a></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">1</a></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">2</a></li>
+                                                                <li class="page-item active"><span class="page-link brd-rd2">3</span></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">4</a></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">5</a></li>
+                                                                <li class="page-item">........</li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">18</a></li>
+                                                                <li class="page-item next"><a class="page-link brd-rd2" href="#" itemprop="url">NEXT</a></li>
+                                                            </ul>
+                                                        </div><!-- Pagination Wrapper -->
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="statement">
+                                                    <div class="tabs-wrp brd-rd5">
+                                                        <h4 itemprop="headline">STATEMENTS</h4>
+                                                        <div class="select-wrap-inner">
+                                                            <div class="select-wrp2"></div>
+                                                            <div class="select-wrp2">
+                                                                <select>
+                                                                    <option>Select Date Range</option>
+                                                                    <option>Select Date Range</option>
+                                                                    <option>Select Date Range</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="statement-table">
+                                                            <table>
+                                                                <thead>
+                                                                    <tr><th>TRANSACTION ID</th><th>ORDER ID</th><th>DATE</th><th>DETAIL</th><th>AMOUNT</th></tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr><td>#30737723</td><td>8720</td><td>Aug 17,2017</td><td>Order - Misumisu Thai</td><td><span class="red-clr">$35.97</span></td></tr>
+                                                                    <tr><td>#30737723</td><td>8720</td><td>Aug 17,2017</td><td>Order - Jet's Kitchen</td><td><span class="red-clr">$35.97</span></td></tr>
+                                                                    <tr><td>#30737723</td><td>8720</td><td>Aug 17,2017</td><td>Order - Misumisu Thai</td><td><span class="red-clr">$35.97</span></td></tr>
+                                                                    <tr><td>#30737723</td><td>8720</td><td>Aug 17,2017</td><td>Order - Misumisu Thai</td><td><span class="red-clr">$35.97</span></td></tr>
+                                                                    <tr><td>#30737723</td><td>8720</td><td>Aug 17,2017</td><td>Order - Misumisu Thai</td><td><span class="red-clr">$35.97</span></td></tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div><!-- Statement Table -->
+                                                        <div class="pagination-wrapper text-center style2">
+                                                            <ul class="pagination justify-content-center">
+                                                                <li class="page-item prev"><a class="page-link brd-rd2" href="#" itemprop="url">PREV</a></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">1</a></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">2</a></li>
+                                                                <li class="page-item active"><span class="page-link brd-rd2">3</span></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">4</a></li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">5</a></li>
+                                                                <li class="page-item">........</li>
+                                                                <li class="page-item"><a class="page-link brd-rd2" href="#" itemprop="url">18</a></li>
+                                                                <li class="page-item next"><a class="page-link brd-rd2" href="#" itemprop="url">NEXT</a></li>
+                                                            </ul>
+                                                        </div><!-- Pagination Wrapper -->
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="account-settings">
+                                                    <div class="tabs-wrp account-settings brd-rd5">
+                                                      <h4 itemprop="headline">ACCOUNT SETTINGS</h4>
+                                                      <div class="account-settings-inner">
+                                                        <div class="row">
+                                                          <div class="col-md-4 col-sm-4 col-lg-4">
+                                                            <div class="profile-info text-center">
+                                                              <div class="profile-thumb brd-rd50">
+                                                                <img
+                                                                  id="profile-display"
+                                                                  src="{{uid.pic.url}}"
+                                                                  alt="profile-img1.jpg"
+                                                                  itemprop="image"
+                                                                />
+                                                              </div>
+                        
+                                                              <p itemprop="description">
+                                                                Upload a profile picture to change
+                                                              </p>
+                                                              <!-- <div class="default-img-lst">
+                                                                                                    <img class="brd-rd50" src="{% static 'assets/images/resource/profile-thumb1.jpg' %}" alt="profile-thumb1.jpg" itemprop="image">
+                                                                                                    <img class="brd-rd50" src="{% static 'assets/images/resource/profile-thumb2.jpg' %}" alt="profile-thumb2.jpg" itemprop="image">
+                                                                                                    <img class="brd-rd50" src="{% static 'assets/images/resource/profile-thumb3.jpg' %}" alt="profile-thumb3.jpg" itemprop="image">
+                                                                                                    <img class="brd-rd50" src="{% static 'assets/images/resource/profile-thumb4.jpg' %}" alt="profile-thumb4.jpg" itemprop="image">
+                                                                                                    <img class="brd-rd50" src="{% static 'assets/images/resource/profile-thumb5.jpg' %}" alt="profile-thumb5.jpg" itemprop="image">
+                                                                                                </div> -->
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-md-8 col-sm-8 col-lg-8">
+                                                            <div class="profile-info-form-wrap">
+                                                              <form
+                                                                class="profile-info-form"
+                                                                action="{% url 'dashboard' %}"
+                                                                method="POST"
+                                                                enctype="multipart/form-data"
+                                                              >
+                                                                {% csrf_token %}
+                                                                <div class="row mrg20">
+                                                                  <div
+                                                                    class="col-md-12 col-sm-12 col-lg-12"
+                                                                  >
+                                                                    <label>
+                                                                      First Name
+                                                                      <sup>*</sup>
+                                                                    </label>
+                                                                    <input
+                                                                      class="brd-rd3"
+                                                                      type="text"
+                                                                      name="fname"
+                                                                      value="{{uid.fname}}"
+                                                                    />
+                                                                  </div>
+                                                                  <div
+                                                                    class="col-md-12 col-sm-12 col-lg-12"
+                                                                  >
+                                                                    <label>
+                                                                      Lirst Name
+                                                                      <sup>*</sup>
+                                                                    </label>
+                                                                    <input
+                                                                      class="brd-rd3"
+                                                                      type="text"
+                                                                      name="lname"
+                                                                      value="{{uid.lname}}"
+                                                                    />
+                                                                  </div>
+                                                                  <div
+                                                                    class="col-md-12 col-sm-12 col-lg-12"
+                                                                  >
+                                                                    <label>
+                                                                      Email Address
+                                                                      <sup>*</sup>
+                                                                    </label>
+                                                                    <input
+                                                                      class="brd-rd3"
+                                                                      name="email"
+                                                                      type="email"
+                                                                      value="{{uid.email}}"
+                                                                    />
+                                                                  </div>
+                                                                  <div
+                                                                    class="col-md-12 col-sm-12 col-lg-12"
+                                                                  >
+                                                                    <label>
+                                                                      Phone No
+                                                                      <sup>*</sup>
+                                                                    </label>
+                                                                    <input
+                                                                      class="brd-rd3"
+                                                                      name="phone"
+                                                                      type="text"
+                                                                      value="{{uid.phone}}"
+                                                                    />
+                                                                  </div>
+                                                                  <div class="profile-img-upload-btn">
+                                                                    <label
+                                                                      class="fileContainer brd-rd5 yellow-bg"
+                                                                    >
+                                                                      UPLOAD PICTURE
+                                                                      <input
+                                                                        id="profile-upload"
+                                                                        name="pic"
+                                                                        type="file"
+                                                                        value="{{uid.pic.url}}"
+                                                                      />
+                                                                    </label>
+                                                                  </div>
+                        
+                                                                  <div
+                                                                    class="brd-rd3 sign-out-btn yellow-bg"
+                                                                  >
+                                                                    <input
+                                                                      class="brd-rd3"
+                                                                      name="Update"
+                                                                      type="submit"
+                                                                      value="Update"
+                                                                      style="
+                                                                        color: black;
+                                                                        background: red;
+                                                                      "
+                                                                    />
+                                                                  </div>
+                                                                </div>
+                                                              </form>
+                                                            </div>
+                                                          </div>
+                                                         
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Section Box -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+
+   
+     
+    </main><!-- Main Wrapper -->
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="assets/js/google-map-int.js"></script>
+    <script src="../../www.google.com/recaptcha/api.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>	
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/plugins.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script src="{% static 'assets/js/google-map-int.js' %}"></script>
+<script src="../../www.google.com/recaptcha/api.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script>
+  function clickaccountsettings() {
+    document.getElementById('accountsettingslink').click()
+  }
+</script>
+</html>

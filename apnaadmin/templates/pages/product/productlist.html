@@ -1,0 +1,86 @@
+{% extends 'header.html' %} {% load static %} {% block content %}
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-xl-12 col-md-12">
+      <div class="ms-panel ms-panel-fh">
+        <div
+          class="ms-panel-header ms-form-group my-0 mb-0 has-icon fs-14"
+          style="display: flex;"
+        >
+          <h4>Menu Details</h4>
+          &nbsp;
+          <input
+            type="search"
+            id="myInput"
+            onkeyup="myFunction()"
+            class="ms-form-input"
+            name="search"
+            placeholder="Search Product Name"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="ms-panel-body">
+          <div class="table-responsive">
+            <table class="table thead-primary" id="myTable">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Product Name</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">Delete</th>
+                  <th scope="col">Product Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for menu in menu %}
+                <tr>
+                  <td>{{forloop.counter}}</td>
+                  <td>{{menu.item_name }}</td>
+                  <td>{{menu.item_price }}</td>
+                  <td>{{menu.item_category.cname }}</td>
+
+                  <td>
+                    <button><a href="{% url 'medit' menu.id %}">edit</a></button>
+                  </td>
+                  <td>
+                    <button><a href="{% url 'mdelete' menu.id %}">delet</a></button>
+                  </td>
+                  <td>
+                    <button><a href="{% url 'mdetail' menu.id %}">Details</a></button>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock content %} {% block js %}
+  <script>
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue
+      input = document.getElementById('myInput')
+      filter = input.value.toUpperCase()
+      table = document.getElementById('myTable')
+      tr = table.getElementsByTagName('tr')
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName('td')[1]
+        if (td) {
+          txtValue = td.textContent || td.innerText
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = ''
+          } else {
+            tr[i].style.display = 'none'
+          }
+        }
+      }
+    }
+  </script>
+
+  {% endblock js %}
+</div>

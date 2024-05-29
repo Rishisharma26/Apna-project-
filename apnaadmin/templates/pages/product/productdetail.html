@@ -1,0 +1,93 @@
+{% extends 'header.html' %} {% load static %} {% block content %}
+
+
+
+    <!-- Body Content Wrapper -->
+    <div class="ms-content-wrapper">
+      <div class="row">
+
+        <div class="col-md-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb pl-0">
+              <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Menu</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
+            </ol>
+          </nav>
+        </div>
+         <div class="col-md-12">
+          <div class="ms-panel">
+            <div class="ms-panel-header">
+              <h3>Product Details</h3>
+            </div>
+            <div class="ms-panel-body">   
+            <img class="d-block w-100"  src="{{menu.pic.url}}" alt="First slide">
+            </div>
+          </div>
+        </div>
+
+
+<div class=" col-md-6">
+          <div class="ms-panel ms-panel-fh">
+            <div class="ms-panel-body">
+              <h4 class="section-title bold"><h3>Product Info</h3></h4>
+              <table class="table ms-profile-information">
+                <tbody>
+
+                  <tr>
+                    <th scope="row"> <h5>Name</h5></th>
+                    <td><h6 style="text-transform:capitalize">{{menu.item_name}}</h6></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><h5>Price</h5></th>
+                    <td><h6 style="text-transform:capitalize">{{menu.item_price}}</h6></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><h5>Product Category</h5></th>
+                    <td><h6 style="text-transform:capitalize">{{menu.item_category.cname}}</h6></td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><h5>Availiblity</h5></th>
+                 <td><h6 style="text-transform:capitalize">{{menu.availablity}}</h6></td>
+                  </tr>
+                  
+
+                </tbody>
+              </table>
+              <div class="new">
+                <button type="button"><a  href="{% url 'medit' menu.id %}" >Edit </a></button>
+                <button type="button"><a href="{% url 'mdelete' menu.id %}">delet</a></button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class=" col-md-6">
+          <div class="ms-panel ms-panel-fh">
+            <div class="ms-panel-body">
+
+              <h4 class="section-title bold"><h5>Product Description</h5> </h4>
+              <p class="description" style="text-transform:capitalize">{{menu.item_desc}}</p>
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+
+  </main>
+
+
+
+
+
+
+<!-- Mirrored from slidesigma.com/themes/html/costic/pages/product/productdetail.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Feb 2020 13:11:53 GMT -->
+{% endblock content %} 

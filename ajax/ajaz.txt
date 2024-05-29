@@ -1,0 +1,23 @@
+
+    # for ajax------------------------------------
+
+def carmakerdropdown(request):
+    maker = request.GET['maker']
+    getmaker = carMaker.objects.get(makerName=maker)
+    # print('maker: ' + getmaker.makerName)
+    getcars = modelLine.objects.filter(maker=getmaker)
+    # for car in getcars:
+    #     print('cars: ' + car.carName)
+    data = []
+    for car in getcars:
+        item = {
+            'carname': car.carName,
+            'carid' : car.id
+        }
+        data.append(item)
+    # maker = 'working'
+    return JsonResponse({'data':data})
+
+
+
+

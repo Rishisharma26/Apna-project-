@@ -1,0 +1,88 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+    <!-- Body Content Wrapper -->
+    <div class="ms-content-wrapper">
+      <div class="row">
+
+        <div class="col-md-12">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb pl-0">
+              <li class="breadcrumb-item"><a href="#"><i class="material-icons">home</i> Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Orders</li>
+
+            </ol>
+          </nav>
+
+
+
+         
+          <div class="col-12">
+            <div class="ms-panel">
+              <div class="ms-panel-header">
+                <h6> Order List</h6>
+              </div>
+              <div class="ms-panel-body">
+
+                <div class="table-responsive">
+                  <table class="table table-hover thead-primary">
+                    <thead>
+                      <tr>
+                        <th scope="col">Order ID</th>
+                        
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Table no</th>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Item Quantity</th>
+                        <th scope="col">Price</th>  
+                            <th scope="col">Order status</th>
+                            <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in order %}
+                      
+                      <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.cust_details.fname}} {{i.cust_details.lname}}</td>
+                        <td>{{i.cust_details.tno}}</td>
+                        <td>{{i.order_item.item_name }}</td>
+                        <td>{{i.item_quantity }}</td>
+                        <td>&#8377;{{i.totalPrice}}</td>
+                       
+                        <form action="{% url 'status' %}" method="POST">
+                          {% csrf_token %}
+                        <td><select name="status" id="{{i.id}}">
+                          <option value="accept">{{i.process_status}}</option>
+                          <option value="accept">accept</option>
+                          <option value="cooking">cooking</option>
+                          <option value="ready">order ready</option>
+                          <option value="delever">Order delevered</option>
+                        </select></td>
+                        <input type="hidden"  name="pk" value="{{i.id}}">
+                        <td><input type="submit" value="update status"></td>
+                      </form>
+                        
+                        
+                        <div>
+                        
+              
+                        {% endfor %}
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </main>
+
+{% endblock content %}

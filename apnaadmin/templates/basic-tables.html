@@ -1,0 +1,80 @@
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+    <!-- Body Content Wrapper -->
+    <div class="ms-content-wrapper">
+      <div class="row">
+
+        
+        <div class="col-xl-12 col-md-12">
+          <div class="ms-panel ms-panel-fh">
+            <div class="ms-panel-header">
+              <h6>Costumer Details</h6>
+            </div>
+            <div class="ms-panel-body">
+              <div class="table-responsive">
+                <table class="table thead-primary">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">fname</th>
+                      <th scope="col">lname</th>
+                      <th scope="col">email</th>
+                      <th scope="col">phone</th>
+                      <th scope="col">status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                    {% for costumer in costumer %}
+                    <tr>
+                      <td>{{forloop.counter}}</td>
+                      <td>{{costumer.fname }}</td>
+                      <td>{{costumer.lname }}</td>
+                      <td>{{costumer.email }}</td>
+                      <td>{{costumer.phone }}</td>
+                      <td>{{costumer.tno }}</td>
+                     
+                      <form action="" method="POST">
+                        {% csrf_token %}
+                        <td>{{costumer.tno }}</td>
+                        <td><select name="tno" id="{{custumer.id}}">
+                          <option value="">{{costumer.tno }}</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                        </select></td>
+                      <td><select name="rstatus" id="{{customer.id}}">
+                        <option value="none">{{costumer.rstatus }}</option>
+                        <option value="active">active</option>
+                        <option value="deactive">deactive</option>
+                      </select></td>
+                      <input type="hidden"  name="pk" value="{{customer.id}}">
+                      <td><input type="submit" value="update activity"></td>
+                    </form>
+                      
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+ 
+  <!-- MODALS -->
+
+<!-- Quick bar -->
+  <!-- Quick bar -->
+  {% endblock content %}

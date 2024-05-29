@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>OTP</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.png'%}">
+    
+
+    <link rel="stylesheet" href="{% static 'assets/css/icons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/main.css'%}">
+     <link rel="stylesheet" href="{% static 'assets/css/red-color.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/yellow-color.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+
+
+</head>
+<body itemscope>    
+    <main>
+        <div class="preloader">
+            <div id="cooking">
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div class="bubble"></div>
+                <div id="area">
+                    <div id="sides">
+                        <div id="pan"></div>
+                        <div id="handle"></div>
+                    </div>
+                    <div id="pancake">
+                        <div id="pastry"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <header class="stick">
+            <div class="topbar">
+            <div class="logo-menu-sec">
+                <div class="container"> 
+                    <div class="logo"><h1 itemprop="headline"><img src="{% static 'assets/images/logo2.png' %}" alt="logo.png" itemprop="image"></a></h1></div>
+                    
+                    {% if msg %}
+                    <h3>{{msg}}</h3>
+                    {% endif %}
+                    <form class="sign-form" action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-2 col-sm-3 col-lg-2">
+                                <input class="brd-rd3" type="text" placeholder="phoneno" name="user"><br>
+                            </div>
+                            <div >
+                                <input class="brd-rd3" type="hidden" value="ok" name="password">
+                            </div>
+                            <div class="ol-md-2 col-sm-2 col-lg-2">
+                                <button class="red-bg brd-rd3" type="submit">Login</button>
+                            </div>
+                            
+                        </div>
+                    </form>
+                    <!-- <button class="red-bg brd-rd3"><a href="{% url 'logout' %}"></a> </button> -->
+                </div>
+            </div>
+        </div> 
+    </main><!-- Main Wrapper -->
+
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/plugins.js' %}"></script> 
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="{% static 'assets/js/google-map-int.js' %}"></script>
+    <script src="//www.google.com/recaptcha/api.js"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+</body>	
+
+</html>
